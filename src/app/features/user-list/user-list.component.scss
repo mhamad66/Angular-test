@@ -1,0 +1,48 @@
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  min-height: calc(100vh - 100px);
+}
+
+.loading-state,
+.error-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+
+  p {
+    font-size: 1.2rem;
+    color: var(--app-text-muted);
+    margin-bottom: 16px;
+  }
+}
+
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1200px;
+  margin-bottom: 32px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding: 16px 0;
+
+  .page-info {
+    font-size: 1rem;
+    color: var(--app-text-secondary);
+    min-width: 120px;
+    text-align: center;
+  }
+}

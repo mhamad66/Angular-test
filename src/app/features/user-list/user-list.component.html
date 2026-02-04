@@ -1,0 +1,51 @@
+<div class="user-list-container">
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="loading-state">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error && !loading) {
+    <div class="error-state">
+      <p>{{ error }}</p>
+      <button mat-raised-button color="primary" (click)="retry()">
+        Retry
+      </button>
+    </div>
+  }
+
+  <!-- Empty State -->
+  @if (!loading && !error && users.length === 0) {
+    <div class="empty-state">
+      <p>No users found</p>
+    </div>
+  }
+
+  <!-- User Cards -->
+  @if (!loading && !error && users.length > 0) {
+    <div class="user-cards">
+      @for (user of users; track user.id) {
+        <app-user-card [user]="user"></app-user-card>
+      }
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <button 
+        mat-raised-button 
+        (click)="previousPage()" 
+        [disabled]="currentPage <= 1">
+        Previous
+      </button>
+      <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button 
+        mat-raised-button 
+        (click)="nextPage()" 
+        [disabled]="currentPage >= totalPages">
+        Next
+      </button>
+    </div>
+  }
+</div>

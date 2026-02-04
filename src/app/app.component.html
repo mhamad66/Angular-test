@@ -1,0 +1,5 @@
+<app-loading-bar></app-loading-bar>
+<app-header></app-header>
+<main class="app-main" [@routeAnimation]="getRouteAnimationData(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>

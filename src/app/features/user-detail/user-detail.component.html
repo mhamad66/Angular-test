@@ -1,0 +1,50 @@
+<div class="user-detail-container">
+  <!-- Back Button -->
+  <button mat-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="loading-state">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error && !loading) {
+    <div class="error-state">
+      <p>{{ error }}</p>
+      <button mat-raised-button color="primary" (click)="retry()">
+        Retry
+      </button>
+    </div>
+  }
+
+  <!-- Not Found State -->
+  @if (notFound && !loading) {
+    <div class="not-found-state">
+      <mat-icon class="not-found-icon">person_off</mat-icon>
+      <h2>User Not Found</h2>
+      <p>The user you're looking for doesn't exist.</p>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Go Back
+      </button>
+    </div>
+  }
+
+  <!-- User Details -->
+  @if (user && !loading && !error && !notFound) {
+    <mat-card class="user-card">
+      <img mat-card-image [src]="user.avatar" [alt]="user.first_name + ' ' + user.last_name">
+      <mat-card-content>
+        <h1 class="user-name">{{ user.first_name }} {{ user.last_name }}</h1>
+        <div class="user-info">
+          <p><strong>ID:</strong> {{ user.id }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

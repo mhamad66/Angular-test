@@ -1,0 +1,32 @@
+<div class="search-dropdown" role="listbox">
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="dropdown-item loading" role="option">
+      <span class="loading-text">Searching...</span>
+    </div>
+  }
+
+  <!-- User Not Found -->
+  @if (notFound && !loading) {
+    <div class="dropdown-item not-found" role="option">
+      <span>User not found</span>
+    </div>
+  }
+
+  <!-- User Result -->
+  @if (user && !loading && !notFound) {
+    <div 
+      class="dropdown-item user-result"
+      [class.active]="isActive"
+      role="option"
+      [attr.aria-selected]="isActive"
+      (click)="onSelect()"
+      id="search-result-0">
+      <img [src]="user.avatar" [alt]="user.first_name" class="user-avatar">
+      <div class="user-info">
+        <span class="user-name">{{ user.first_name }} {{ user.last_name }}</span>
+        <span class="user-id">ID: {{ user.id }}</span>
+      </div>
+    </div>
+  }
+</div>

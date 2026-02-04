@@ -1,0 +1,80 @@
+.user-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  min-height: calc(100vh - 100px);
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 24px;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.loading-state,
+.error-state,
+.not-found-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+
+  p {
+    font-size: 1.1rem;
+    color: var(--app-text-muted);
+    margin-bottom: 16px;
+  }
+}
+
+.not-found-state {
+  .not-found-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: var(--app-text-disabled);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0 0 8px;
+    color: var(--app-text-secondary);
+  }
+}
+
+.user-card {
+  max-width: 400px;
+  width: 100%;
+
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .user-name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  .user-info {
+    padding: 16px;
+
+    p {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: var(--app-text-secondary);
+
+      strong {
+        color: var(--app-text-muted);
+        margin-right: 8px;
+      }
+    }
+  }
+}

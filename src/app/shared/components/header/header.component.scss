@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.search-container {
+  position: relative;
+  width: 280px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: var(--app-text-muted);
+  }
+
+  &:focus {
+    background: var(--app-surface);
+    box-shadow: 0 2px 8px var(--app-shadow-light);
+  }
+}

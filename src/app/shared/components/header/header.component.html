@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="header">
+  <span class="title">User Directory</span>
+  
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by User ID..."
+      [value]="searchValue"
+      (input)="onSearchInput($event)"
+      (focus)="onFocus()"
+      (keydown)="onKeyDown($event)"
+      role="combobox"
+      aria-label="Search users by ID"
+      [attr.aria-expanded]="showDropdown"
+      aria-haspopup="listbox"
+      aria-autocomplete="list"
+      [attr.aria-activedescendant]="isResultActive ? 'search-result-0' : null"
+    >
+    
+    @if (showDropdown) {
+      <app-search-dropdown
+        [user]="searchResult"
+        [loading]="loading"
+        [notFound]="notFound"
+        [isActive]="isResultActive"
+        (selectUser)="selectUser($event)"
+      ></app-search-dropdown>
+    }
+  </div>
+</mat-toolbar>
