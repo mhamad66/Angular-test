@@ -1,12 +1,10 @@
 <div class="user-list-container">
-  <!-- Loading State -->
   @if (loading) {
     <div class="loading-state">
       <mat-spinner diameter="50"></mat-spinner>
     </div>
   }
 
-  <!-- Error State -->
   @if (error && !loading) {
     <div class="error-state">
       <p>{{ error }}</p>
@@ -16,14 +14,12 @@
     </div>
   }
 
-  <!-- Empty State -->
   @if (!loading && !error && users.length === 0) {
     <div class="empty-state">
       <p>No users found</p>
     </div>
   }
 
-  <!-- User Cards -->
   @if (!loading && !error && users.length > 0) {
     <div class="user-cards">
       @for (user of users; track user.id) {
@@ -31,7 +27,6 @@
       }
     </div>
 
-    <!-- Pagination Controls -->
     <div class="pagination">
       <button 
         mat-raised-button 

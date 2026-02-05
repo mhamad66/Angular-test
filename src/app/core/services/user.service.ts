@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { tap, shareReplay, map } from 'rxjs/operators';
+import { tap, shareReplay, map, finalize } from 'rxjs/operators';
 import { User, PageResponse, SingleUserResponse } from '../../models/user.model';
 import { environment } from '../../../environments/environment';
 
@@ -30,8 +30,8 @@ export class UserService {
       tap(response => {
         this.pageCache.set(page, response);
         response.data.forEach(user => this.userCache.set(user.id, user));
-        this.inFlightRequests.delete(requestKey);
       }),
+      finalize(() => this.inFlightRequests.delete(requestKey)),
       shareReplay(1)
     );
 
@@ -55,8 +55,8 @@ export class UserService {
       map(response => response.data),
       tap(user => {
         this.userCache.set(id, user);
-        this.inFlightRequests.delete(requestKey);
       }),
+      finalize(() => this.inFlightRequests.delete(requestKey)),
       shareReplay(1)
     );
 

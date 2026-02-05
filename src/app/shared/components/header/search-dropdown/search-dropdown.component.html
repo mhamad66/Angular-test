@@ -1,19 +1,16 @@
 <div class="search-dropdown" role="listbox">
-  <!-- Loading State -->
   @if (loading) {
     <div class="dropdown-item loading" role="option">
       <span class="loading-text">Searching...</span>
     </div>
   }
 
-  <!-- User Not Found -->
   @if (notFound && !loading) {
     <div class="dropdown-item not-found" role="option">
       <span>User not found</span>
     </div>
   }
 
-  <!-- User Result -->
   @if (user && !loading && !notFound) {
     <div 
       class="dropdown-item user-result"
