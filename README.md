@@ -2,12 +2,6 @@
 
 An Angular SPA that lists users from the Reqres API with pagination, user detail pages, instant ID search, caching, and global loading feedback.
 
-## Prerequisites
-
-- Node.js 14+ (LTS recommended)
-- npm 6+ or yarn
-- Angular CLI (`npm install -g @angular/cli`)
-
 ## Setup
 
 ```bash
